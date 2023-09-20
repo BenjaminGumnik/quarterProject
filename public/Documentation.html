@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toy API Documentation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <h1 class="display-4 text-center">API Documentation</h1>
+    <h1>Toy API </h1>
+    
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>HTTP Request</th>
+                <th>Route</th>
+                <th>Description</th>
+                <th>Parameters</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Get All Toys -->
+            <tr>
+                <td>GET</td>
+                <td>/toys</td>
+                <td>Returns a list of toys according to the query parameters.</td>
+                <td>
+                    <ul>
+                        <li><strong>limit</strong> (optional): Number of items per page.</li>
+                        <li><strong>page</strong> (optional): Page number to return.</li>
+                        <li><strong>sort</strong> (optional): Sorting criteria.</li>
+                        <li><strong>s</strong> (optional): Search string for name or info fields.</li>
+                    </ul>
+                </td>
+            </tr>
+            
+            <!-- Get Toys by Category -->
+            <tr>
+                <td>GET</td>
+                <td>/toys/category?cat=</td>
+                <td>Returns a list of toys by category.</td>
+                <td>
+                    <ul>
+                        <li><strong>cat</strong>: Category name.</li>
+                    </ul>
+                </td>
+            </tr>
+            
+            <!-- Get Total Toy Count -->
+            <tr>
+                <td>GET</td>
+                <td>/toys/count</td>
+                <td>Returns the total count of toys.</td>
+                <td>
+                    <ul>
+                        <li><strong>limit</strong> (optional): Number of items per page.</li>
+                    </ul>
+                </td>
+            </tr>
+            
+            <!-- Get Toys by Price Range -->
+            <tr>
+                <td>GET</td>
+                <td>/toys/price</td>
+                <td>Returns toys within a price range.</td>
+                <td>
+                    <ul>
+                        <li><strong>min</strong> (optional): Minimum price.</li>
+                        <li><strong>max</strong>: (optional) Maximum price.</li>
+                    </ul>
+                </td>
+            </tr>
+            
+            <!-- Get Single Toy by ID -->
+            <tr>
+                <td>GET</td>
+                <td>/toys/single/:id</td>
+                <td>Returns a single toy by its ID.</td>
+                <td>
+                    <ul>
+                        <li><strong>id</strong>: Toy ID.</li>
+                    </ul>
+                </td>
+            </tr>
+            
+            <!-- Create a New Toy -->
+            <tr>
+                <td>POST</td>
+                <td>/toys</td>
+                <td>Create a new toy. <br>
+                    <strong>Token is required!</strong>
+                </td>
+                <td>
+                    <ul>
+                        <li><strong>Request body</strong> toy details to be added in the following format.</li>
+                        <li>name:String,<br>
+                            info:String,<br>
+                            category:String,<br>
+                            img_url:String (allowed but not required),<br>
+                            price:Number<br></li>
+                    </ul>
+                </td>
+            </tr>
+            
+            <!-- Update Toy by ID -->
+            <tr>
+                <td>PUT</td>
+                <td>/toys/:id</td>
+                <td>Update an existing toy. <br>
+                    <strong>Token is required!</strong>
+                </td>
+                <td>
+                    <ul>
+                        <li><strong>id</strong>: Toy ID.</li>
+                        <li><strong>Request body</strong> toy details to be added in the following format.</li>
+                        <li>name:String,<br>
+                            info:String,<br>
+                            category:String,<br>
+                            img_url:String (allowed but not required),<br>
+                            price:Number<br></li>
+                    </ul>
+                </td>
+            </tr>
+            
+            <!-- Delete Toy by ID -->
+            <tr>
+                <td>DELETE</td>
+                <td>/toys/:id</td>
+                <td>Delete a toy by its ID. <br>
+                    <strong>Token is required!</strong>
+                </td>
+                <td>
+                    <ul>
+                        <li><strong>id</strong>: Toy ID.</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h1>User API </h1>
+    
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>HTTP Request</th>
+                <th>Route</th>
+                <th>Description</th>
+                <th>Requet Body</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Create a New User -->
+            <tr>
+                <td>POST</td>
+                <td>/users</td>
+                <td>Create a new user.</td>
+                <td>
+                    <ul>
+                        <li>name:String,<br>
+                            email:String,<br>
+                            password:String<br></li>
+                    </ul>
+                </td>
+            </tr>
+            
+            <!-- User Login -->
+            <tr>
+                <td>POST</td>
+                <td>/users/login</td>
+                <td>Authenticate a user and generate a token.</td>
+                <td>
+                    <ul>
+                        <li>
+                            email:String,<br>
+                            password:String<br></li>                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
